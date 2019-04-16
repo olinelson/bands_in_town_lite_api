@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bands_in_town_id: MyString
+  name: MyString
+  url: MyString
+  image_url: MyString
+  thumb_url: MyString
+  facebook_page_url: MyString
+  mbid: MyString
+  tracker_count: 1
+  upcoming_event_count: 1
+
+two:
+  bands_in_town_id: MyString
+  name: MyString
+  url: MyString
+  image_url: MyString
+  thumb_url: MyString
+  facebook_page_url: MyString
+  mbid: MyString
+  tracker_count: 1
+  upcoming_event_count: 1
