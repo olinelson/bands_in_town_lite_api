@@ -14,6 +14,27 @@ class Api::V1::EventsController < ApplicationController
         render json: json_string
     end
 
+    def create
+        
+        @event = Event.new
+            @event.bands_in_town_id = params[:id]
+            @event.artist_id = params[:artist_id]
+            @event.url = params[:url]
+            @event.on_sale_datetime = params[:on_sale_datetime]
+            @event.datetime = params[:datetime]
+            @event.venue_country = params[:venue][:country]
+            @event.venue_city = params[:venue][:city]
+            @event.venue_latitude = params[:venue][:latitude]
+            @event.venue_name = params[:venue][:name]
+            @event.venue_region = params[:venue][:region]
+            @event.venue_longitude = params[:venue][:longitude]
+            @event.lineup = params[:lineup]
+            @event.ticket_url = params[:offers][0][:url]
+            @event.ticket_status = params[:offers][0][:status]
+            
+            @event.save
+    end
+
     def search_api_by_artist_name
         byebug
         params.permit(:artist_name)
@@ -22,4 +43,6 @@ class Api::V1::EventsController < ApplicationController
         response = HTTP.get(url).to_s
         render json: response
     end
+
+    
 end

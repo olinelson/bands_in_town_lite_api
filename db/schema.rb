@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_175328) do
     t.string "venue_region"
     t.string "venue_longitude"
     t.string "lineup"
-    t.string "tiket_url"
+    t.string "ticket_url"
     t.string "ticket_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -14,7 +14,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :venue_region
       t.string :venue_longitude
       t.string :lineup
-      t.string :tiket_url
+      t.string :ticket_url
       t.string :ticket_status
 
       t.timestamps
