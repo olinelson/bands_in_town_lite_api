@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   namespace :api do
 
     namespace :v1 do
-      
-  resources :artists
+     
+    get '/artists/search', to: 'artists#search'  
+
+    resources :artists
+
+    
     end
   end
 

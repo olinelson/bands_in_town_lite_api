@@ -1,4 +1,6 @@
 class Api::V1::ArtistsController < ApplicationController
+    require "http"
+    require 'uri'
 
     def index 
         # byebug
@@ -14,11 +16,21 @@ class Api::V1::ArtistsController < ApplicationController
     end
 
     def create
+        byebug
         @artist = Artist.new(artist_params)
+        @artist.bands_in_town_id = params[:id]
     end
 
     def artist_params
-        params.permit(bands_in_town_id:, name:, url:, image_url:, thumb_url:, facebook_page_url:, mbid:, tracker_count:, upcoming_event_count:)
+        params.permit(:bands_in_town_id, :name, :url, :image_url, :thumb_url, :facebook_page_url, :mbid, :tracker_count, :upcoming_event_count)
+    end
+
+    def search
+        params.permit(:artist_name)
+        artist_name = URI.encode(params[:artist_name])
+        url = "https://rest.bandsintown.com/artists/#{artist_name}/?app_id=#{ENV['APP_ID']}"
+        response = HTTP.get(url).to_s
+        render json: response
     end
 
 
