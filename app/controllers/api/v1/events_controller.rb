@@ -15,7 +15,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def create
-        
         @event = Event.new
             @event.bands_in_town_id = params[:id]
             @event.artist_id = params[:artist_id]
@@ -46,3 +45,4 @@ class Api::V1::EventsController < ApplicationController
 
     
 end
+
