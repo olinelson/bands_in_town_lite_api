@@ -35,7 +35,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def search_api_by_artist_name
-        byebug
         params.permit(:artist_name)
         artist_name = URI.encode(params[:artist_name])
         url = "https://rest.bandsintown.com/artists/#{artist_name}/events?app_id=#{ENV['APP_ID']}&date=upcoming"

@@ -19,10 +19,12 @@ class Api::V1::ArtistsController < ApplicationController
         byebug
         @artist = Artist.new(artist_params)
         @artist.bands_in_town_id = params[:id]
+        byebug
+        @artist.save
     end
 
     def artist_params
-        params.permit(:bands_in_town_id, :name, :url, :image_url, :thumb_url, :facebook_page_url, :mbid, :tracker_count, :upcoming_event_count)
+        params.permit( :name, :url, :image_url, :thumb_url, :facebook_page_url, :mbid, :tracker_count, :upcoming_event_count)
     end
 
     def search
