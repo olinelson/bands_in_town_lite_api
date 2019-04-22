@@ -6,7 +6,7 @@ Rails.application.routes.draw do
      
     get '/artists/search', to: 'artists#search'  
 
-    get '/events/search', to: 'events#search_api_by_artist_name'
+    get '/events/search', to: 'events#search_by_artist_name'
     
     resources :artists, :events
 

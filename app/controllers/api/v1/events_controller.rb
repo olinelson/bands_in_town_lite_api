@@ -34,12 +34,15 @@ class Api::V1::EventsController < ApplicationController
             @event.save
     end
 
-    def search_api_by_artist_name
+    def search_by_artist_name
+
         params.permit(:artist_name)
-        artist_name = URI.encode(params[:artist_name])
+        artist_name = URI.encode(params[:artist_name]).downcase
         url = "https://rest.bandsintown.com/artists/#{artist_name}/events?app_id=#{ENV['APP_ID']}&date=upcoming"
         response = HTTP.get(url).to_s
         render json: response
+
+
     end
 
     

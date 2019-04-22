@@ -19,7 +19,6 @@ class Api::V1::ArtistsController < ApplicationController
         byebug
         @artist = Artist.new(artist_params)
         @artist.bands_in_town_id = params[:id]
-        byebug
         @artist.save
     end
 
